@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Patient Dashboard</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/main.css' %}">
+</head>
+<body>
+<div class="container">
+<h2>Patient Dashboard</h2>
+<p>Welcome, {{ profile.first_name }} {{ profile.last_name }}!</p>
+<p>Email: {{ profile.user.email }}</p>
+<p>Address: {{ profile.address_line1 }}, {{ profile.city }}, {{ profile.state }}, {{ profile.pincode }}</p>
+{% if profile.profile_picture %}
+    <img src="{{ profile.profile_picture.url }}" alt="Profile Picture" class="profile-pic">
+{% endif %}
+<a href="{% url 'logout' %}" class="logout-link">Logout</a>
+</div>
+</body>
+</html>
